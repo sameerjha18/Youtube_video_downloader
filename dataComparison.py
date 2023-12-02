@@ -1,8 +1,7 @@
 import csv
 
-views = []
-
 def read_csv_file():
+    views = []
     with open("youtubeData.csv", "r",) as file:
         data = csv.reader(file)
         header = next(data)
@@ -15,14 +14,14 @@ def read_csv_file():
                 "view": x[1],
             }
             views.append(videoData)
+    return views
 
 
 
-def higest_views():
-    sorted_data = sorted(views, key=lambda i: i['view'])
-    top_view = sorted_data[-1]
-    second_top = sorted_data[-2]
-    third_top = sorted_data[-3]
-    return top_view,second_top,third_top
+def higest_views(views, n):
+    sorted_data = sorted(views, key=lambda i: i['view'], reverse= True)
+    topView = sorted_data[:n]
+    return topView
+
 
 

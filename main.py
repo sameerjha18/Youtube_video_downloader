@@ -43,7 +43,7 @@ if __name__ == '__main__':
         dict_writer = csv.DictWriter(file, keys)
         dict_writer.writeheader()
         dict_writer.writerows(detail_of_videos)
-    read_csv_file()
-    print(higest_views())
+    views_info = read_csv_file()
+    print(higest_views(views_info, 3))
 
     # youtubeVideoDownload()
